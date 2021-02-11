@@ -19,7 +19,9 @@ module Pupilfirst
     # Note: This is not the original Rails version. However, this is the easiest way to enforce the latest defaults.
     config.load_defaults 6.0
 
-    config.assets.precompile << 'delayed/web/application.css'
+    config.assets.enabled = false
+
+    # config.assets.precompile << 'delayed/web/application.css'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
