@@ -7,11 +7,16 @@ common: &common
 
 development:
   <<: *common
-  database: pupilfirst
+  database: pupilfirst_dev
 
 test:
   <<: *common
   database: pupilfirst_test
 
 production:
+  adapter: postgresql
+  host: localhost
+  database: pupilfirst
   pool: 5
+  username: ubuntu
+  password: ubuntu
