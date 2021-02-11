@@ -113,7 +113,7 @@ Rails.application.configure do
   config.middleware.delete(Rack::Runtime)
 
   # Store files on Amazon S3.
-  config.active_storage.service = :amazon
+  config.active_storage.service = :test
 
   # Postmark
   config.action_mailer.delivery_method = :postmark
