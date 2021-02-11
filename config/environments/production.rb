@@ -115,22 +115,28 @@ Rails.application.configure do
   # Store files on Amazon S3.
   config.active_storage.service = :test
 
-  # Postmark
-  config.action_mailer.delivery_method = :postmark
-  config.action_mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
+    # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.perform_caching = false
+  
+  config.action_mailer.delivery_method = :letter_opener
+  # # Postmark
+  # config.action_mailer.delivery_method = :postmark
+  # config.action_mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
 
   # Add the rack-cors middleware to serve CORS header for static assets
-  config.middleware.insert_before 0, Rack::Cors do
-    allow do
-      origins '*'
-      resource '/assets/*', methods: :get, headers: :any
-    end
+  # config.middleware.insert_before 0, Rack::Cors do
+  #   allow do
+  #     origins '*'
+  #     resource '/assets/*', methods: :get, headers: :any
+  #   end
 
-    allow do
-      origins '*'
-      resource '/assets/**/*', methods: :get, headers: :any
-    end
-  end
+  #   allow do
+  #     origins '*'
+  #     resource '/assets/**/*', methods: :get, headers: :any
+  #   end
+  # end
 
   # Add the GraphQL probe for Skylight.
   config.skylight.probes << "graphql"
