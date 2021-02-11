@@ -1,13 +1,10 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-  },
   theme: {
     extend: {
       colors: {
-        primary: {
+        primary:
           100: "#F0EAFB",
           200: "#D3BFF3",
           300: "#B08EE6",
