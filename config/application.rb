@@ -39,5 +39,6 @@ module Pupilfirst
 
     # Ensure BatchLoader's cache is purged between requests.
     config.middleware.use BatchLoader::Middleware
+    config.assets.initialize_on_precompile = false
   end
 end
